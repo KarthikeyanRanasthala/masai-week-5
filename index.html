@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="bg-primary" data-spy="scroll" data-target="#main-nav" data-offset="0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top" id="main-nav">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active bg-light rounded mx-2">
+                            <a href="#" class="nav-link text-primary">Home</a>
+                        </li>
+                        <li class="nav-item bg-light rounded mx-2">
+                            <a href="#exchange-spy" class="nav-link text-primary">Check Exchange</a>
+                        </li>
+                        <li class="nav-item bg-light rounded mx-2">
+                            <a href="#chart-spy" class="nav-link text-primary">Check Price Chart</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="mt-lg-4">
+                <p class="display-3 text-center text-white m-5 pt-5">Currency, Re-Invented!</p>
+            
+                <div class="container rounded bg-white">
+                    <table class="table text-center table-striped table-responsive-lg">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Symbol</th>
+                                <th>Price</th>
+                                <th>24h</th>
+                                <th>Circulating Supply</th>
+                                <th>Total Supply</th>
+                            </tr>
+                        </thead>
+                        <tbody id="main-table-body"></tbody>
+                    </table>
+                </div>
+
+                <div class="container rounded bg-white" id="exchange-spy">
+                    <div class="p-3">
+                        <h2 class="text-center">Check Exchange Price</h2>
+                        <div class="input-group col-lg-4 offset-lg-4 p-lg-4">
+                            <select class="custom-select coin-selector" id="selector-1"></select>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" onclick="checkExchange()">Check</button>
+                            </div>
+                        </div>
+                        <h3 id="exchange-output" class="text-center"></h3>
+                    </div>
+                </div>   
+
+                <div class="container rounded bg-white mt-lg-3" id="chart-spy">
+                    <div class="p-3">
+                        <h2 class="text-center">Check Price Chart</h2>
+                        <div class="row py-lg-4">
+                            <div class="col-lg-2 offset-lg-4">
+                                <select class="custom-select coin-selector" id="selector-2"></select>
+                            </div>
+                            <div class="input-group col-lg-3">
+                                <div class="input-group-append">
+                                    <input type="number" class="form-control" min="1" max="30" value="1" id="days-selector">
+                                    <span class="input-group-text">Days</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mx-auto" style="width: 70px;">
+                            <button class="btn btn-outline-secondary" type="button" onclick="requestChartData()">Check</button>
+                        </div>
+                    </div>
+                    <canvas id="chart"></canvas>
+                </div>
+            </div>
+            <div class="bg-primary">&nbsp;</div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
